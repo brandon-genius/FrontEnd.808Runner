@@ -1,0 +1,5 @@
+.products{
+    border: 3px dotted orangered;
+    background-color: aquamarine;
+    display: inline-block;
+}
