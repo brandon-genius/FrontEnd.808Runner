@@ -3,15 +3,21 @@ import "./App.css";
 import Navbar from "./components/navBar";
 import Footer from "./components/footer";
 import Catelog from "./components/catelog";
+import Todo from "./components/todo";
+
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
+import About from "./components/about";
 
 function App() {
   return (
     <div className="App">
       <Navbar></Navbar>
-      <h1> Welcome to 808runner </h1>
       <Catelog></Catelog>
       
-
+      <About></About>
+      <Todo></Todo>
       <Footer></Footer>
     </div>
   );

@@ -1,5 +1,11 @@
 .products{
-    border: 3px dotted orangered;
+    border: 1px solid black;
     background-color: aquamarine;
-    display: inline-block;
+    display: inline-table;
+    width: 500px;
+
+}
+.products img{
+    width: 200px;
+    height: 100px;
 }

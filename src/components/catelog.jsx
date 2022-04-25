@@ -1,14 +1,10 @@
 import "./catelog.css";
 import Product from "./product";
 
-function Catelog(){
+const Catelog = () => {
     return(
         <div className="catelog">
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
+            <h1 className="">List of Products Below</h1>
             <Product></Product>
             <Product></Product>
             <Product></Product>

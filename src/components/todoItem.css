@@ -1,0 +1,5 @@
+.todo-item{
+   border: solid 2px black;
+   align-items: center;
+   display: flex;
+}

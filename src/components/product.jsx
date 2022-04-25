@@ -1,11 +1,17 @@
 import "./product.css";
+import "./quantityPicker";
+import QuantityPicker from "./quantityPicker";
 
-function Product(){
+const Product = () => {
     return(
         <div className="products">
-            <h3>
-                Carbon Plate Shoes
-            </h3>
+            <h3>Carbon Plate Shoes</h3>
+
+            <img src="/Images/alphafly.nike.jpg"/>
+
+            <label>$250.99</label>
+
+            <QuantityPicker></QuantityPicker>
         </div>
     )
 }
