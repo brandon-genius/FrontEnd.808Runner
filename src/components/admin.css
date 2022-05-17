@@ -19,3 +19,6 @@
 .my-contol input{
     width: 230px;
 }
+.admin-page .alert {
+    margin: 15px 250px;
+}

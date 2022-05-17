@@ -6,12 +6,19 @@ import {useState} from 'react';
 const Admin = () => {
         const[product, setProduct] = useState({})
         const[coupon, setCoupon] = useState({})
+        const [errorVisible, setErrorVisible] = useState(false);
+        const [errorMessage, setErrorMessage] = useState("");
         
         const handleTextChange = (e) => {
             let copy = {...product};
             copy[e.target.name] = e.target.value;
 
             setProduct(copy);
+        };
+
+        const showError = (text) => {
+            setErrorMessage(text);
+            setErrorVisible(true);
         };
 
         const handleSaveProduct = () => {
@@ -22,24 +29,25 @@ const Admin = () => {
 
             //validations
             if(product.title.length < 5) {
-                alert("Error, title must be > 5 characters");
+                showError("Error, Title should have atleast 5 characters");
                 return;
             };
 
             if(!product.image) {
-                alert("Error, image cannot be empty");
+                showError("Error, image cannot be empty");
                 return;    
             };
 
             if(!product.category) {
-                alert("Error, category cannot be empty");
+                showError("Error, category cannot be empty");
                 return;    
             };
 
             if(!savedProduct.price || savedProduct.price < 1) {
-                alert("Error, Price should be greater than $1");
+                showError("Error, Price should be greater than $1");
             return;
             };
+            setErrorVisible(false);
         };
         const handleCouponChange = (e) => {
             let copy = {...coupon};
@@ -57,20 +65,23 @@ const Admin = () => {
             //validations
             //1 discount not >35
             if(!savedCoupon.discount || savedCoupon.discount > 35) {
-                alert("Error, discount cannot be greater than 35% or lower than 1");
+                showError("Error, discount cannot be greater than 35% or lower than 1");
                 return;
             };
             //// 2 code should have atleast 5 char
             if(savedCoupon.code.length < 5) {
-                alert("Error, code should contain atleast 5 characters");
+                showError("Error, code should contain atleast 5 characters");
                 return;
             };
+            setErrorVisible(false);
             //send coupon gto server
             console.log("Saving Coupon")
         };
 
     return(
         <div className="admin-page">
+          {errorVisible ?   <div className="alert alert-danger">{errorMessage}</div> : null}
+
             <div className="sections-container">
                 <section className="section-products">
                     <h4>Manage Products</h4>
