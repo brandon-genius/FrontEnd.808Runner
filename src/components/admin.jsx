@@ -5,6 +5,7 @@ import {useState} from 'react';
 
 const Admin = () => {
         const[product, setProduct] = useState({})
+        const[coupon, setCoupon] = useState({})
         
         const handleTextChange = (e) => {
             let copy = {...product};
@@ -15,19 +16,57 @@ const Admin = () => {
 
         const handleSaveProduct = () => {
             console.log(product);
-        };
 
-        const[coupon, setCoupon] = useState({})
-        
-        const handleTextChange1 = (e) => {
+            let savedProduct = {...product};
+            savedProduct.price = parseFloat(savedProduct.price);
+
+            //validations
+            if(product.title.length < 5) {
+                alert("Error, title must be > 5 characters");
+                return;
+            };
+
+            if(!product.image) {
+                alert("Error, image cannot be empty");
+                return;    
+            };
+
+            if(!product.category) {
+                alert("Error, category cannot be empty");
+                return;    
+            };
+
+            if(!savedProduct.price || savedProduct.price < 1) {
+                alert("Error, Price should be greater than $1");
+            return;
+            };
+        };
+        const handleCouponChange = (e) => {
             let copy = {...coupon};
             copy[e.target.name] = e.target.value;
 
             setCoupon(copy);
         };
 
-        const handleSaveProduct1 = () => {
+        const handleSaveCoupon = () => {
             console.log(coupon);
+
+            let savedCoupon = {...coupon};
+            savedCoupon.discount = parseFloat(savedCoupon.discount);
+
+            //validations
+            //1 discount not >35
+            if(!savedCoupon.discount || savedCoupon.discount > 35) {
+                alert("Error, discount cannot be greater than 35% or lower than 1");
+                return;
+            };
+            //// 2 code should have atleast 5 char
+            if(savedCoupon.code.length < 5) {
+                alert("Error, code should contain atleast 5 characters");
+                return;
+            };
+            //send coupon gto server
+            console.log("Saving Coupon")
         };
 
     return(
@@ -65,18 +104,18 @@ const Admin = () => {
                     <div className="form">
                         <div className="my-control">
                             <label>Code:</label>
-                            <input onChange={handleTextChange1} name="title" type="text" />
+                            <input onChange={handleCouponChange} name="code" type="text" />
                         </div>
                         <div className="my-control">
                             <label>Category:</label>
-                            <input onChange={handleTextChange1} name="category" type="text" />
+                            <input onChange={handleCouponChange} name="category" type="text" />
                         </div>
                         <div className="my-control">
                             <label>Discount:</label>
-                            <input onChange={handleTextChange1} name="price" type="number" />
+                            <input onChange={handleCouponChange} name="discount" type="number" />
                         </div>
                         <div className="my-control">
-                            <button onClick={handleSaveProduct1} className="btn btn-dark">Save Coupon</button>
+                            <button onClick={handleSaveCoupon} className="btn btn-dark">Save Coupon</button>
                         </div>
                     </div>
                 </section>
