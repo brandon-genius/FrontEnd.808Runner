@@ -1,0 +1,21 @@
+.admin-page .sections-container{
+    display: flex;
+}
+.admin-page .section-products{
+    flex: 5;
+}
+.admin-page .section-coupons{
+    flex: 3;
+}
+.my-control{
+    margin-bottom: 10px;
+}
+.my-control label{
+    display: inline-block;
+    width: 120px;
+    text-align: right;
+    margin-right: 7px;
+}
+.my-contol input{
+    width: 230px;
+}

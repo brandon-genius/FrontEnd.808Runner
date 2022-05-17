@@ -1,9 +1,15 @@
 
 .footer h4{
     text-align: center;
-    color: chartreuse;
+    color: white;
     margin: 5px;
 }
+.footer h5{
+    text-align: center;
+    color: gray;
+    font-size: 15px;
+    margin: 5px;
+}    
 .footer{
     position: fixed;
     left: 0;
