@@ -1,4 +1,5 @@
 import "./home.css";
+import {Link} from 'react-router-dom';
 
 const Home = () => {
     return(
@@ -9,6 +10,12 @@ const Home = () => {
                     <h2>Run - Breath - Feel - Live</h2>
                 </div>
                 <img src="/Images/run808.jpg" alt="run better"/>
+            </div>
+
+            <div>
+                <Link className="btn btn-lg btn-primary" to="/catalog">
+                    Check out the Catelog!
+                </Link>
             </div>
         </div>
     );
