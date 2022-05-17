@@ -23,7 +23,6 @@ const QuantityPicker = (props) => {
             <button onClick={handleIncrease} className="btn btn-sm btn-dark">+</button>
             <label>{quantity}</label>
             <button onClick={handleDecrease} className="btn btn-sm btn-dark">-</button>
-            <button className="btncart btn-primary">Add to Cart</button>
         </div>
     )
 }
