@@ -24,8 +24,8 @@ const Product = (props) => {
             <img src={"/Images/" + props.info.image} alt="Product"></img>
 
             <div className="prices">
-                <label className="total"><span>Total:</span>${(props.info.price * quantity).toFixed(2)}</label>
-                <label className="price"><span>Price: </span>${props.info.price.toFixed(2)}</label>
+                <label className="total"><span>Total:</span>${((props.info.price * 1) * quantity).toFixed(2)}</label>
+                <label className="price"><span>Price: </span>${(props.info.price * 1).toFixed(2)}</label>
             </div>
             <QuantityPicker onChange={handleQuantityChange}></QuantityPicker>
 

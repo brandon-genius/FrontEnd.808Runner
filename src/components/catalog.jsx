@@ -3,15 +3,14 @@ import Product from "./product";
 import {useState, useEffect} from 'react';
 import DataService from "../services/dataService";
 
-const Catelog = () => {
+const Catalog = () => {
     const [products, setProducts] = useState([]);
 
-    const loadCatalog  = () => {
+    const loadCatalog  =  async () => {
         const service = new DataService();
         let prods = service.getCatelog();
         //set prods to state variable
         setProducts(prods);
-        console.log(prods);
     };
 
     useEffect(() => {
@@ -31,4 +30,4 @@ const Catelog = () => {
     )
 }
 
-export default Catelog;
+export default Catalog;
