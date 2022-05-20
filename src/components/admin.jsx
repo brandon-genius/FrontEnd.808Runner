@@ -13,7 +13,7 @@ const Admin = () => {
 
         useEffect(() => {
             retrieveCoupons();
-        });
+        }, []);
 
         const retrieveCoupons = () => {
             let service = new DataService();
